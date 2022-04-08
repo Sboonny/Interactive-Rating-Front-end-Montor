@@ -1,7 +1,18 @@
 Vue.createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
+  data() {
+    return {
+      message: 'Hello Vue!'
     }
-  }).mount('#app')
+  }
+  
+})
+.component("rating", {
+  template: "#rating-template",
+  data() {
+    return {
+      ratingInput: ""
+    }
+  }
+})
+  
+  .mount('#app')
