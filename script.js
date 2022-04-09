@@ -20,7 +20,7 @@ Vue.createApp({
 },
   methods: {
     setRating(){
-      this.rating.values = this.ratingInput
+      this.ratingInput = this.rating.values 
     }
   },
   mounted(){
