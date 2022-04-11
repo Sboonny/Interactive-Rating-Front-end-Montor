@@ -1,12 +1,4 @@
-const rating = {
-  values: {
-  one: "1",
-  two: "2",
-  three: "3",
-  four: "4",
-  five: "5"
- }
-}
+const rating = ["1", "2", "3", "4", "5"]
 ratingInput = ''
 submit="Submit"
 Vue.createApp({
@@ -19,8 +11,8 @@ Vue.createApp({
   }
 },
   methods: {
-    setRating(){
-      this.ratingInput = this.rating.values 
+    setRating(input){
+      this.ratingInput = this.rating[input]
     }
   },
   mounted(){
