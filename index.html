@@ -49,19 +49,19 @@
     </section>
    
 
-    <section v-show="isVisible" id="card">
+    <section v-show="isVisible" class="flex flex-direcition-column center" id="card">
       <img src="images/illustration-thank-you.svg" alt="" aria-hidden="true">
-      <h2>You selected
+      <h2 class="fc-orange">You selected
         {{ratingInput}} out of 5
       </h2>
-
-      <p class="fc-white fs-700">Thank you!
+      <div class="">
+      <p class="fc-white fs-700 flex flex-direcition-column centers ">Thank you!
 
         <span class="fc-medium-grey fs-400">We appreciate you taking the time to give a rating. If you ever need more support,
           don’t hesitate to get in touch!</span>
       </p>
       <button class="button " @click="toggleCard()">{{exit}}</button>
-
+    </div>
       <!-- Thank you state end -->
     </section>
 

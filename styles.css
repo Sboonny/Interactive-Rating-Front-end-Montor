@@ -198,3 +198,16 @@ section {
   height: clamp(3em, 40px, 5em);  
   width: clamp(3em, 30px, 4em);
 }
+
+section p {
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+section h2 {
+ background-color: hsl(var(--light-grey) /.1);
+ padding-inline: 1em;
+ padding-block: .1em;
+ border-radius: 50px;
+ font-weight: var(--fw-thin);
+}
