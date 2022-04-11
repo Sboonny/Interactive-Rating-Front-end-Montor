@@ -17,7 +17,7 @@ Vue.createApp({
       this.ratingInput = this.rating[input]
     },
     toggleCard(){
-      isVisible = !isVisible
+      this.isVisible = !this.isVisible
     }
   },
   mounted(){
