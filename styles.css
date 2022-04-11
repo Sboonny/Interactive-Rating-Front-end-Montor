@@ -25,7 +25,7 @@
 
 @media (min-width: 35em) {
   :root {
-    --fs-400: 1.15em;
+    --fs-400: 1em;
     --fs-500: 1.5em;
     --fs-700: 2em;
     --fs-900: 3em;
@@ -34,7 +34,7 @@
 
 @media (min-width: 45em) {
   :root {
-    --fs-400: 1.25em;
+    --fs-400: 1.1em;
     --fs-500: 1.7em;
     --fs-700: 2.25em;
     --fs-900: 3.25em;
@@ -72,6 +72,9 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: var(--ff-sans-serif);
+  background-color: hsl(var(--very-dark-blue));
+  color: hsl(var(--medium-grey));
+  overflow: hidden;
 }
 
 
@@ -109,6 +112,22 @@ select {
 /* ---------------- */
 /* utility classes */
 /* ---------------- */
+.fs-700{
+  font-size: var(--fs-700);
+}
+.fs-400{
+  font-size: var(--fs-400);
+}
+
+.fc-medium-grey {
+  color: hsl(var(--medium-grey))
+}
+.fc-white {
+  color: hsl(var(--white))
+}
+.fc-orange {
+  color: hsl(var(--orange))
+}
 
 .flex {
   display: flex;
@@ -129,6 +148,10 @@ select {
   justify-content: center;
 }
 
+.stretch {
+  width: 100%;
+  justify-content: space-between;
+}
 .m-in-1 {
   margin-inline: 1em;
 }
@@ -138,4 +161,40 @@ select {
 }
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
+}
+/* ----------- */
+/* Components */
+/* ----------- */
+
+section {
+  width: max(24em, 60vw);
+  align-items:  flex-start;
+  background-color: hsl(var(--dark-blue));
+  margin: 2em;
+  padding: 2em;
+  border-radius: 15px;
+}
+
+.button {
+  border: 0;
+  border-radius: 15px;
+  background-color: hsl(var(--orange));
+  color: hsl(var(--white));
+  width: 100%;
+  padding-block: .7em;
+  display: flex;
+  place-content: center;
+  font-weight: var(--fw-thin);
+  letter-spacing: 2.2px;
+}
+
+.circle-bg {
+  border: 0;
+  background-color: hsl(var(--light-grey) /.1);
+  color: hsl(var(--medium-grey));
+  font-weight: var(--fw-bold);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  height: clamp(3em, 40px, 5em);  
+  width: clamp(3em, 30px, 4em);
 }

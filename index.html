@@ -26,39 +26,41 @@
 
   <!-- Rating state start -->
 
-  <main id="app">
-    <section class="flex flex-direcition-column center flow" v-show="!isVisible">
-      <img src="images/icon-star.svg" alt=""> <!-- alt="" because image is only for decoration -->
-      <h1>How did we do?</h1>
+  <main class="grid center" id="app">
+    <section class="flex flex-direcition-column flow" v-show="!isVisible">
+      <div class="circle-bg flex center">
+      <img class="" src="images/icon-star.svg" alt="" aria-hidden="true"> <!-- alt="" because image is only for decoration -->
+    </div>
+      <h1 class="fs-700 fc-white">How did we do?</h1>
 
-      <p>Please let us know how we did with your support request. All feedback is appreciated
+      <p class="fs-400">Please let us know how we did with your support request. All feedback is appreciated
         to help us improve our offering!</p>
       
       <!-- <button v-for="{rate, i} in rating" @click="setRating(rate)">{{rating[i]}}</button> -->
       <!-- clicking on buttons blow does display rating in ratingInput -->
-      <div class="flex">
-      <button @click="setRating(0)"> {{rating[0]}} </button>
-      <button @click="setRating(1)"> {{rating[1]}} </button>
-      <button @click="setRating(2)"> {{rating[2]}} </button>
-      <button @click="setRating(3)"> {{rating[3]}} </button>
-      <button @click="setRating(4)"> {{rating[4]}} </button>
+      <div class="flex stretch">
+      <button class="rate circle-bg" @click="setRating(0)"> {{rating[0]}} </button>
+      <button class="rate circle-bg" @click="setRating(1)"> {{rating[1]}} </button>
+      <button class="rate circle-bg" @click="setRating(2)"> {{rating[2]}} </button>
+      <button class="rate circle-bg" @click="setRating(3)"> {{rating[3]}} </button>
+      <button class="rate circle-bg" @click="setRating(4)"> {{rating[4]}} </button>
     </div>
-      <button @click="toggleCard()">{{submit}}</button>
+      <button class="button" @click="toggleCard()">{{submit}}</button>
     </section>
    
 
     <section v-show="isVisible" id="card">
-      <img src="images/illustration-thank-you.svg" alt="">
+      <img src="images/illustration-thank-you.svg" alt="" aria-hidden="true">
       <h2>You selected
         {{ratingInput}} out of 5
       </h2>
 
-      <p>Thank you!
+      <p class="fc-white fs-700">Thank you!
 
-        <span>We appreciate you taking the time to give a rating. If you ever need more support,
+        <span class="fc-medium-grey fs-400">We appreciate you taking the time to give a rating. If you ever need more support,
           don’t hesitate to get in touch!</span>
       </p>
-      <button @click="toggleCard()">{{exit}}</button>
+      <button class="button " @click="toggleCard()">{{exit}}</button>
 
       <!-- Thank you state end -->
     </section>

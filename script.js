@@ -1,7 +1,7 @@
 const rating = ["1", "2", "3", "4", "5"]
 ratingInput = ''
-submit="Submit"
-exit="Exit"
+submit="SUBMIT"
+exit="EXIT"
 isVisible = false
 Vue.createApp({
   data()
