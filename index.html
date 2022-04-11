@@ -31,18 +31,18 @@
       <p>Please let us know how we did with your support request. All feedback is appreciated
         to help us improve our offering!</p>
       
-      <button v-for="{rate, i} in rating" @click="setRating(rate)">{{rating[i]}}</button>
+      <!-- <button v-for="{rate, i} in rating" @click="setRating(rate)">{{rating[i]}}</button> -->
       <!-- clicking on buttons blow does display rating in ratingInput -->
-      <button @click="setRating(0)"> {{rating[input]}} </button>
-      <button @click="setRating(1)"> {{rating[input]}} </button>
-      <button @click="setRating(2)"> {{rating[input]}} </button>
-      <button @click="setRating(3)"> {{rating[input]}} </button>
-      <button @click="setRating(4)"> {{rating[input]}} </button>
-      <button @click="isVisble()">{{submit}}</button>
+      <button @click="setRating(0)"> {{rating[0]}} </button>
+      <button @click="setRating(1)"> {{rating[1]}} </button>
+      <button @click="setRating(2)"> {{rating[2]}} </button>
+      <button @click="setRating(3)"> {{rating[3]}} </button>
+      <button @click="setRating(4)"> {{rating[4]}} </button>
+      <button @click="toggleCard()">{{submit}}</button>
     </section>
    
 
-    <section>
+    <section v-show="isVisible" id="card">
       <img src="images/illustration-thank-you.svg" alt="">
       <h2>You selected
         {{ratingInput}} out of 5
