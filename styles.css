@@ -1,3 +1,46 @@
+/* Custom properties */
+:root {
+  /* colors */
+  --orange: 25 97% 53%;
+  --white: 0 0% 100%;
+  --light-grey: 217 12% 63%;
+  --medium-grey: 216 12% 54%;
+  --dark-blue: 213 19% 18%;
+  --very-dark-blue: 216 12% 8%;
+
+  /* font-weight */
+  --fw-thin: 400;
+  
+  --fw-bold: 700;
+
+  /* font-size */
+  --fs-400: .85em;
+  --fs-500: 1.05em;
+  --fs-700: 1.5em;
+  --fs-900: 2.5em;
+  /* font-family */
+  --ff-sans-serif: 'Overpass', sans-serif;
+}
+
+
+@media (min-width: 35em) {
+  :root {
+    --fs-400: 1.15em;
+    --fs-500: 1.5em;
+    --fs-700: 2em;
+    --fs-900: 3em;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    --fs-400: 1.25em;
+    --fs-500: 1.7em;
+    --fs-700: 2.25em;
+    --fs-900: 3.25em;
+  }
+}
+
 /* Css reset */
 /* https://piccalil.li/blog/a-modern-css-reset/ */
 
@@ -13,8 +56,7 @@ body,
 h1,
 h2,
 p,
-figure
-{
+figure {
   margin: 0;
 }
 
@@ -29,6 +71,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: var(--ff-sans-serif);
 }
 
 
@@ -50,9 +93,9 @@ select {
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -61,4 +104,38 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ---------------- */
+/* utility classes */
+/* ---------------- */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.flex-direcition-column {
+  flex-direction: column
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.m-in-1 {
+  margin-inline: 1em;
+}
+
+.m-in-2 {
+  margin-inline: 2em;
+}
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
 }

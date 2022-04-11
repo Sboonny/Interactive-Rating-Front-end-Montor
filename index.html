@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
@@ -13,7 +16,7 @@
 
   <script src="https://unpkg.com/vue@3"></script>
   <script src="script.js" defer></script>
-    
+  
       </div>
   </div>
   </script>
@@ -24,7 +27,7 @@
   <!-- Rating state start -->
 
   <main id="app">
-    <section v-show="!isVisible">
+    <section class="flex flex-direcition-column center flow" v-show="!isVisible">
       <img src="images/icon-star.svg" alt=""> <!-- alt="" because image is only for decoration -->
       <h1>How did we do?</h1>
 
@@ -33,11 +36,13 @@
       
       <!-- <button v-for="{rate, i} in rating" @click="setRating(rate)">{{rating[i]}}</button> -->
       <!-- clicking on buttons blow does display rating in ratingInput -->
+      <div class="flex">
       <button @click="setRating(0)"> {{rating[0]}} </button>
       <button @click="setRating(1)"> {{rating[1]}} </button>
       <button @click="setRating(2)"> {{rating[2]}} </button>
       <button @click="setRating(3)"> {{rating[3]}} </button>
       <button @click="setRating(4)"> {{rating[4]}} </button>
+    </div>
       <button @click="toggleCard()">{{submit}}</button>
     </section>
    

@@ -7,7 +7,7 @@ Vue.createApp({
   data()
   {
     return{
-    rating,
+   rating,
    ratingInput,
    submit,
    exit,
