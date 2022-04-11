@@ -1,6 +1,7 @@
 const rating = ["1", "2", "3", "4", "5"]
 ratingInput = ''
 submit="Submit"
+close="Close"
 isVisible = false
 Vue.createApp({
   data()
@@ -9,6 +10,7 @@ Vue.createApp({
     rating,
    ratingInput,
    submit,
+   close,
    isVisible
   }
 },

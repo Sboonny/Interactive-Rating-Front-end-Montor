@@ -24,7 +24,7 @@
   <!-- Rating state start -->
 
   <main id="app">
-    <section>
+    <section v-show="!isVisible">
       <img src="images/icon-star.svg" alt=""> <!-- alt="" because image is only for decoration -->
       <h1>How did we do?</h1>
 
@@ -53,6 +53,8 @@
         <span>We appreciate you taking the time to give a rating. If you ever need more support,
           don’t hesitate to get in touch!</span>
       </p>
+      <button @click="toggleCard()">{{close}}</button>
+
       <!-- Thank you state end -->
     </section>
 
