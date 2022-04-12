@@ -37,7 +37,12 @@
         to help us improve our offering!</p>
       
     <div class="flex stretch">
-      <button class="circle-bg" v-for="[rate, i] in rating" @click="setRating(rate - 1)">{{rating[rate -1]}}</button>
+      <button 
+       class="circle-bg"
+       v-for="[rate, i] in rating" 
+       @click="setRating(rate - 1), activeClass = rate"
+       :class="{active: rate == activeClass}"
+       >{{rating[rate -1]}}</button>
       <!--
       <button class="circle-bg" @click="setRating(0)"> {{rating[0]}} </button>
       <button class="circle-bg" @click="setRating(1)"> {{rating[1]}} </button>

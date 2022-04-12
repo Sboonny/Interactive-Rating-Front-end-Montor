@@ -224,8 +224,9 @@ section {
   background-color: hsl(var(--orange));
   color: hsl(var(--white));
   cursor: pointer;
+  border: 0;
 }
-.circle-bg:active {
+.active {
   background-color: hsl(var(--light-grey));
   color: hsl(var(--white));
   cursor: no-drop;
