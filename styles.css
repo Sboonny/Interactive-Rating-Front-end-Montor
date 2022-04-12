@@ -76,7 +76,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: var(--ff-sans-serif);
-  background-color: hsl(var(--very-dark-blue));
+  background-color: hsl(var(--very-dark-blue) /.5);
   color: hsl(var(--medium-grey));
   overflow: hidden;
 }
@@ -174,7 +174,7 @@ select {
 /* ----------- */
 
 section {
-  width: max(24em, 35vw);
+  width: max(24em, 30vw);
   align-items:  flex-start;
   background-color: hsl(var(--dark-blue));
   margin: 2em;
