@@ -1,3 +1,50 @@
+/* Custom properties */
+:root {
+  /* colors */
+  --orange: 25 97% 53%;
+  --white: 0 0% 100%;
+  --light-grey: 217 12% 63%;
+  --medium-grey: 216 12% 54%;
+  --dark-blue: 213 19% 18%;
+  --very-dark-blue: 216 12% 8%;
+
+  /* font-weight */
+  --fw-thin: 400;
+  
+  --fw-bold: 700;
+
+  /* font-size */
+  --fs-200: .2em;
+  --fs-400: .85em;
+  --fs-500: 1.05em;
+  --fs-700: 1.5em;
+  --fs-900: 2.5em;
+  /* font-family */
+  --ff-sans-serif: 'Overpass', sans-serif;
+}
+
+
+@media (min-width: 35em) {
+  :root {
+  --fs-200: .5em;
+    --fs-400: 1em;
+    --fs-500: 1.5em;
+    --fs-700: 2em;
+    --fs-900: 3em;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+  --fs-200: .75em;
+
+    --fs-400: 1.1em;
+    --fs-500: 1.7em;
+    --fs-700: 2.25em;
+    --fs-900: 3.25em;
+  }
+}
+
 /* Css reset */
 /* https://piccalil.li/blog/a-modern-css-reset/ */
 
@@ -13,8 +60,7 @@ body,
 h1,
 h2,
 p,
-figure
-{
+figure {
   margin: 0;
 }
 
@@ -29,6 +75,10 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: var(--ff-sans-serif);
+  background-color: hsl(var(--very-dark-blue));
+  color: hsl(var(--medium-grey));
+  overflow: hidden;
 }
 
 
@@ -50,9 +100,9 @@ select {
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -61,4 +111,142 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ---------------- */
+/* utility classes */
+/* ---------------- */
+.fs-200{
+  font-size: var(--fs-200);
+}
+.fs-400{
+  font-size: var(--fs-400);
+}
+.fs-700{
+  font-size: var(--fs-700);
+}
+
+.fc-medium-grey {
+  color: hsl(var(--medium-grey))
+}
+.fc-white {
+  color: hsl(var(--white))
+}
+.fc-orange {
+  color: hsl(var(--orange))
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.flex-direcition-column {
+  flex-direction: column
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.stretch {
+  width: 100%;
+  justify-content: space-between;
+}
+.m-in-1 {
+  margin-inline: 1em;
+}
+
+.m-in-2 {
+  margin-inline: 2em;
+}
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+/* ----------- */
+/* Components */
+/* ----------- */
+
+section {
+  width: max(24em, 40vw);
+  align-items:  flex-start;
+  background-color: hsl(var(--dark-blue));
+  margin: 2em;
+  padding: 2em;
+  border-radius: 15px;
+}
+
+.button {
+  border: 0;
+  border-radius: 15px;
+  background-color: hsl(var(--orange));
+  color: hsl(var(--white));
+  width: 100%;
+  padding-block: .7em;
+  display: flex;
+  place-content: center;
+  font-weight: var(--fw-thin);
+  letter-spacing: 2.2px;
+}
+.button:hover,
+.button:focus {
+  background-color: hsl(var(--white));
+  color: hsl(var(--orange));
+  cursor: pointer;
+}
+
+.img-bg {
+  background-color: hsl(var(--light-grey) /.1);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  height: clamp(3em, 45px, 8em);  
+  width: clamp(3em, 35px, 8em);
+}
+.circle-bg {
+  border: 0;
+  background-color: hsl(var(--light-grey) /.1);
+  color: hsl(var(--medium-grey));
+  font-weight: var(--fw-bold);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  height: clamp(3em, 45px, 8em);  
+  width: clamp(3em, 35px, 8em);
+}
+
+.circle-bg:hover,
+.circle-bg:focus {
+  background-color: hsl(var(--orange));
+  color: hsl(var(--white));
+  cursor: pointer;
+  border: 0;
+}
+.active {
+  background-color: hsl(var(--light-grey));
+  color: hsl(var(--white));
+  cursor: no-drop;
+}
+
+section p {
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+section h2 {
+ background-color: hsl(var(--light-grey) /.1);
+ padding-inline: 1em;
+ padding-block: .1em;
+ border-radius: 50px;
+ font-weight: var(--fw-thin);
+}
+
+
+#active {
+  background-color: hsl(var(--light-grey) );
+  background-color: hsl(var(--white) );
 }

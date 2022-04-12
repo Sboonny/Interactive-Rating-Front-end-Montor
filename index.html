@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
@@ -13,10 +16,7 @@
 
   <script src="https://unpkg.com/vue@3"></script>
   <script src="script.js" defer></script>
-  <script type="text/x-template" id="rating-template" defer>
-    <div>
-      <div v-model="ratingInput">
-    <slot />
+  
       </div>
   </div>
   </script>
@@ -26,36 +26,48 @@
 
   <!-- Rating state start -->
 
-  <main id="app">
-    <section>
-      <img src="images/icon-star.svg" alt=""> <!-- alt="" because image is only for decoration -->
-      <h1>How did we do?</h1>
+  <main class="grid center" id="app">
+    <section class="flex flex-direcition-column flow" v-show="!isVisible">
+      <div class="img-bg flex center">
+      <img class="" src="images/icon-star.svg" alt="" aria-hidden="true"> <!-- alt="" because image is only for decoration -->
+    </div>
+      <h1 class="fs-700 fc-white">How did we do?</h1>
 
-      <p>Please let us know how we did with your support request. All feedback is appreciated
+      <p class="fs-400">Please let us know how we did with your support request. All feedback is appreciated
         to help us improve our offering!</p>
-
-      <rating>1</rating>
-      <rating>2</rating>
-      <rating>3</rating>
-      <rating>4</rating>
-      <rating>5</rating>
-
-      <input type="submit" value="Submit">
+      
+    <div class="flex stretch">
+      <button 
+       class="circle-bg"
+       v-for="[rate, i] in rating" 
+       @click="setRating(rate - 1), activeClass = rate"
+       :class="{active: rate == activeClass}"
+       >{{rating[rate -1]}}</button>
+      <!--
+      <button class="circle-bg" @click="setRating(0)"> {{rating[0]}} </button>
+      <button class="circle-bg" @click="setRating(1)"> {{rating[1]}} </button>
+      <button class="circle-bg" @click="setRating(2)"> {{rating[2]}} </button>
+      <button class="circle-bg" @click="setRating(3)"> {{rating[3]}} </button>
+      <button class="circle-bg" @click="setRating(4)"> {{rating[4]}} </button> 
+    -->
+    </div>
+      <button class="button" @click="toggleCard()">{{submit}}</button>
     </section>
-    <!-- Rating state end -->
+   
 
-    <!-- Thank you state start -->
-    <section>
-      <img src="images/illustration-thank-you.svg" alt="">
-      <h2>You selected
-        <!-- Add rating here --> out of 5
+    <section v-show="isVisible" class="flex flex-direcition-column center" id="card">
+      <img src="images/illustration-thank-you.svg" alt="" aria-hidden="true">
+      <h2 class="fc-orange">You selected
+        {{ratingInput}} out of 5
       </h2>
+      <div class="">
+      <p class="fc-white fs-700 flex flex-direcition-column centers ">Thank you!
 
-      <p>Thank you!
-
-        <span>We appreciate you taking the time to give a rating. If you ever need more support,
+        <span class="fc-medium-grey fs-200" >We appreciate you taking the time to give a rating. If you ever need more support,
           don’t hesitate to get in touch!</span>
       </p>
+      <button class="button " @click="toggleCard()">{{exit}}</button>
+    </div>
       <!-- Thank you state end -->
     </section>
 
