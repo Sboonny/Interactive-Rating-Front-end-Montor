@@ -36,14 +36,15 @@
       <p class="fs-400">Please let us know how we did with your support request. All feedback is appreciated
         to help us improve our offering!</p>
       
-      <!-- <button v-for="{rate, i} in rating" @click="setRating(rate)">{{rating[i]}}</button> -->
-      <!-- clicking on buttons blow does display rating in ratingInput -->
-      <div class="flex stretch">
-      <button class="rate circle-bg" @click="setRating(0)"> {{rating[0]}} </button>
-      <button class="rate circle-bg" @click="setRating(1)"> {{rating[1]}} </button>
-      <button class="rate circle-bg" @click="setRating(2)"> {{rating[2]}} </button>
-      <button class="rate circle-bg" @click="setRating(3)"> {{rating[3]}} </button>
-      <button class="rate circle-bg" @click="setRating(4)"> {{rating[4]}} </button>
+    <div class="flex stretch">
+      <button class="circle-bg" v-for="[rate, i] in rating" @click="setRating(rate - 1)">{{rating[rate -1]}}</button>
+      <!--
+      <button class="circle-bg" @click="setRating(0)"> {{rating[0]}} </button>
+      <button class="circle-bg" @click="setRating(1)"> {{rating[1]}} </button>
+      <button class="circle-bg" @click="setRating(2)"> {{rating[2]}} </button>
+      <button class="circle-bg" @click="setRating(3)"> {{rating[3]}} </button>
+      <button class="circle-bg" @click="setRating(4)"> {{rating[4]}} </button> 
+    -->
     </div>
       <button class="button" @click="toggleCard()">{{submit}}</button>
     </section>
@@ -57,7 +58,7 @@
       <div class="">
       <p class="fc-white fs-700 flex flex-direcition-column centers ">Thank you!
 
-        <span class="fc-medium-grey fs-400">We appreciate you taking the time to give a rating. If you ever need more support,
+        <span class="fc-medium-grey fs-200" >We appreciate you taking the time to give a rating. If you ever need more support,
           don’t hesitate to get in touch!</span>
       </p>
       <button class="button " @click="toggleCard()">{{exit}}</button>
