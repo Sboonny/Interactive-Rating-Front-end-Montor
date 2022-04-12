@@ -167,7 +167,7 @@ select {
 /* ----------- */
 
 section {
-  width: max(24em, 60vw);
+  width: max(24em, 40vw);
   align-items:  flex-start;
   background-color: hsl(var(--dark-blue));
   margin: 2em;
@@ -187,7 +187,20 @@ section {
   font-weight: var(--fw-thin);
   letter-spacing: 2.2px;
 }
+.button:hover,
+.button:focus {
+  background-color: hsl(var(--white));
+  color: hsl(var(--orange));
+  cursor: pointer;
+}
 
+.img-bg {
+  background-color: hsl(var(--light-grey) /.1);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  height: clamp(3em, 45px, 8em);  
+  width: clamp(3em, 35px, 8em);
+}
 .circle-bg {
   border: 0;
   background-color: hsl(var(--light-grey) /.1);
@@ -195,8 +208,15 @@ section {
   font-weight: var(--fw-bold);
   border-radius: 50%;
   aspect-ratio: 1;
-  height: clamp(3em, 40px, 5em);  
-  width: clamp(3em, 30px, 4em);
+  height: clamp(3em, 45px, 8em);  
+  width: clamp(3em, 35px, 8em);
+}
+
+.circle-bg:hover,
+.circle-bg:focus {
+  background-color: hsl(var(--orange));
+  color: hsl(var(--white));
+  cursor: pointer;
 }
 
 section p {

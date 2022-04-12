@@ -2,7 +2,8 @@ const rating = ["1", "2", "3", "4", "5"]
 ratingInput = ''
 submit="SUBMIT"
 exit="EXIT"
-isVisible = false
+active = false
+isVisible = true
 Vue.createApp({
   data()
   {
@@ -11,6 +12,7 @@ Vue.createApp({
    ratingInput,
    submit,
    exit,
+   active,
    isVisible
   }
 },
@@ -20,10 +22,15 @@ Vue.createApp({
     },
     toggleCard(){
       this.isVisible = !this.isVisible
+    },
+    activation(){
+      this.active = !this.active
     }
   },
   mounted(){
-    this.setRating()
+    this.setRating(),
+    this.toggleCard(),
+    this.activation()
   }
   
 }).mount('#app')
